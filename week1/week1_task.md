@@ -7,9 +7,9 @@ The objective of this task is to implement a basic edge detection algorithm usin
 - The results should be something like the following:
 
 <p align="center">
-  <img src="https://github.com/siddhanttt2506/Brain-Spy/blob/master/mario.png" />
+  <img src="https://github.com/siddhanttt2506/Brain-Spy/blob/master/week1/mario.png" />
 </p>
-
+<!-- https://github.com/siddhanttt2506/Brain-Spy/blob/master/week1/mario.png -->
 ### Deliverables:
 - **DEADLINE - 18/05/2025 EOD**
 - A github repo with a directory named `week1` consisting of the following:
