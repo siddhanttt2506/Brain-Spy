@@ -11,7 +11,7 @@ The objective of this task is to implement a basic edge detection algorithm usin
 </p>
 
 ### Deliverables:
-- **DEADLINE - 18/05/2025 EOD**
+- **DEADLINE - 20/05/2025 EOD**
 - A github repo with a directory named `week1` consisting of the following:
 	- A Python script or Jupyter Notebook containing your implemented algorithm along with comments and explanations for each step.
 	- A markdown file or a latex pdf, documenting all the experimentation you did, explaining various results, comparing different methods etc.
