@@ -68,6 +68,7 @@ You are expected to answer the following questions in the form of a Jupyter note
   ├──week2/
   ├── read_viz.ipynb # Main notebook with code
   ├── report.md # Detailed report
+  ├── Sample_Data # Data Used
 
 The `read_viz.ipynb` notebook must contain:
 
@@ -81,6 +82,8 @@ The `report.md` must contain:
 - Screenshots of visualizations.
 - Notes on any preprocessing or assumptions made.
 - Observations and challenges encountered.
+
+The sample MRI data in `.nii` format has been uploaded in the GitHub. You are expected to find some MRI data in `.dcm` format for your submission.
 
 ## Additional notes:
 
