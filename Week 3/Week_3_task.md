@@ -21,11 +21,11 @@ Use CIFAR-10 dataset from `torchvision.datasets`. Preprocess the data with appro
 - Plot training and validation loss curves.
 
 ### 3. Classical CNN Architectures
-- Implement or load the following models:
+- Use the following models:
   - LeNet
   - AlexNet
-  - VGG16
-  - ResNet
+  - VGG16,VGG19
+  - ResNet-50,ResNet-150
 - Train each model (fine-tune if pretrained).
 - Evaluate and compare performance on the test set.
 
@@ -60,5 +60,6 @@ Creat a folder in your Github repository named `week3_{Your_name_and_Roll_No}/` 
 ## Notes
 - The deadline is 8th June 2025 EOD and work in groups of three(Note that everyone should submit separately,the members of the same group may submit the same file).
 - You must train all the models end-to-end: one ANN, one basic CNN, and all the advanced CNNs (ResNet, AlexNet, LeNet, VGG16).
+- Try to change the number of layers used in ANN and CNN and compare the accuracy.
 - You may use `torchvision.models` for pretrained architectures.
 - All code and analysis must be your own. Reference sources if using external material. Remember to not directly use codes available online or from ChatGPT. It's easy to figure out if you did.
