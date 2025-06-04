@@ -52,7 +52,7 @@ Use CIFAR-10 dataset from `torchvision.datasets`. Preprocess the data with appro
 - Note any resource constraints or observations related to batch size, GPU usage, etc.
 
 ## Deliverables
-Push a folder named `week3_{Your_name_and_Roll_No}/` in the Week 3 Folder containing:
+Creat a folder in your Github repository named `week3_{Your_name_and_Roll_No}/` in Week 3 Folder(create in your repo) containing:
 - `cifar_classification.ipynb`: Notebook with code, plots, and answers to all questions
 - `report.md`: Written report with summary, comparison table, and performance screenshots. Remember to explain your approaches clearly and maybe give references to what we taught in class. Brownie points for that ;)
 
