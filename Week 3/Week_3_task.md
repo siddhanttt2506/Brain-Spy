@@ -61,5 +61,4 @@ Push a folder named `week3_{Your_name_and_Roll_No}/` in the Week 3 Folder contai
 - The deadline is 8th June 2025 EOD and work in groups of three(Note that everyone should submit separately,the members of the same group may submit the same file).
 - You must train all the models end-to-end: one ANN, one basic CNN, and all the advanced CNNs (ResNet, AlexNet, LeNet, VGG16).
 - You may use `torchvision.models` for pretrained architectures.
-- GPU usage is strongly recommended (Colab, Kaggle, or local setup).
 - All code and analysis must be your own. Reference sources if using external material. Remember to not directly use codes available online or from ChatGPT. It's easy to figure out if you did.
