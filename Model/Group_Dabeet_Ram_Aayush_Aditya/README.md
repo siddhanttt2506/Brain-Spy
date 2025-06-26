@@ -37,7 +37,7 @@ Also, `numpy` is used to ensure shape consistency with the pretrained models.  [
   - Three fully connected layers (each with 4096 units) are added, followed by a sigmoid output for binary classification.
 
 - **Training Setup**:
-  - Optimizer: Adam with learning rate `1e-6`.
+  - Optimizer: Adam with default learning rate.
   - Loss: Binary Crossentropy.
   - Dataset split: 80% training / 20% testing, with 10% validation from the training set.
   - Epochs: 75, Batch size: 64.
@@ -47,7 +47,19 @@ Also, `numpy` is used to ensure shape consistency with the pretrained models.  [
   - The model was evaluated on a separate test set.
   - The final train accuracy plateaus at around ``0.996-0.997`` and above whereas the validation accuracy plateaus at roughly ``0.96``. The final test accuracy is ``0.9622``.
 
+- ** The implementation of this model can be found at the path: `/Dabeet/preprocessed-brainspy-resnet152.ipynb`. **
+
 #### VGG19 with no preprocessing
+- **Summary:**
+  - VGG19 base model is used with all layers frozen along with the same 3 x 4096 units dense layer setup that was used above.
+  - Point to be noted, no preprocessing was done on this model's training set, Adam optimiser with a learning rate of `1e-6` was used and the model was trained for 35 epochs.
+  - A regular 80-20 train-test split was used along with 10% data from the training set being reserved for validation.
+  - The final test accuracy for this model stood at `0.92`.
+  - It is worth to note that the validation-train accuracy plot is much more unstable compared to the previous model.
+
+- ** Implementation can be found at : `/Dabeet/brain-spy.ipynb`. **
+
+#### VGG19 with preprocessing
 
 ### 3D CNN Model:
 ### SGCNN Model:
