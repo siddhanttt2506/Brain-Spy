@@ -25,6 +25,8 @@ Our key goals include:
 - **Computationally Cheaper** as we have limited access to resources
 ## Methodology
 Pre-Processing pipeline included Bias-Field correction, Skull-Stripping, Spatial Normalization (MNI) and Intensity Normalization by using [NPP model](#ref3)[3].
+Along with that, due to RAM constraints on the free tiers of Kaggle and Google Colab, we employed a method of 'entropy based selection' to select the top-k (k=100 in our case) slices from each MRI scan based on their relative importance. The model was finally trained using these slices only, they amounted to roughly 25,000 2D slices. [Slice Selection using Entropy](#ref3)[3].
+
 ### Transfer Learning Models:
 ### 3D CNN Model:
 ### SGCNN Model:
