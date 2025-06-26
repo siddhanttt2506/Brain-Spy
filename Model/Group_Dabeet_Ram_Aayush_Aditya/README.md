@@ -120,6 +120,7 @@ Dataset was processed using `/Aayush/processdataset.py` which uses [nppy library
 The Double CNN model was implemented in the notebook located at: `/Aayush/novel-entropy-model.ipynb`.
 <br> **Dependencies:** `tensorflow`, `nibabel`, `cv2`, `numpy`, `pandas`, `matplotlib` <br>
 **Hardware Specification:** Kaggle 2xT4 GPU <br>
+
 ## Results
 ### Model Performance Comparison
 
