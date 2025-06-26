@@ -24,10 +24,12 @@ Our key goals include:
 - **Comparing 2D and 3D strategies** to determine the effectiveness of volumetric data processing  
 - **Computationally Cheaper** as we have limited access to resources
 ## Methodology
-Pre-Processing pipeline included Bias-Field correction, Skull-Stripping, Spatial Normalization (MNI) and Intensity Normalization by using [NPP model](#ref3)[3].
-Along with that, due to RAM constraints on the free tiers of Kaggle and Google Colab, we employed a method of 'entropy based selection' to select the top-k (k=100 in our case) slices from each MRI scan based on their relative importance. The model was finally trained using these slices only, they amounted to roughly 25,000 2D slices. [Slice Selection using Entropy](#ref3)[3].
+Pre-Processing pipeline included Bias-Field correction, Skull-Stripping, Spatial Normalization (MNI) and Intensity Normalization by using [NPP model](#ref3)[3]. <br>
+Along with that, due to RAM constraints on the free tiers of Kaggle and Google Colab, we employed a method of 'entropy based selection' to select the top-k (k=100 in our case) slices from each MRI scan based on their relative importance. The model was finally trained using these slices only, they amounted to roughly 25,000 2D slices. Further, 128x128 crops are extracted from the center of each slice to be appended to the design matrix X. Integer labels are used. <br>
+Also, `numpy` is used to ensure shape consistency with the pretrained models.  [Slice Selection using Entropy](#ref2)[2].
 
 ### Transfer Learning Models:
+
 ### 3D CNN Model:
 ### SGCNN Model:
 ### Double CNN Architecture Model:
