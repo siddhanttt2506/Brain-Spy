@@ -134,6 +134,7 @@ Double CNN had 98.99% accuracy on test dataset after training for 20 epochs. How
 <span id="ref3">[3]</span> He, X., Wang, A.Q., Sabuncu, M.R. (2023). Neural Pre-processing: A Learning Framework for End-to-End Brain MRI Pre-processing. In: Greenspan, H., et al. Medical Image Computing and Computer Assisted Intervention – MICCAI 2023. MICCAI 2023. Lecture Notes in Computer Science, vol 14227. Springer, Cham. https://doi.org/10.1007/978-3-031-43993-3_25
 <br>
 <span id="ref4">[4]</span> Github Repository for nppy library https://github.com/AG3106/Neural_Pre_Processing
+<span id="ref5">[5]</span> Lozupone, G., Bria, A., Fontanella, F., Meijer, F. J. A., & De Stefano, C. (2024). *AXIAL: Attention-based eXplainability for Interpretable Alzheimer's Localized Diagnosis using 2D CNNs on 3D MRI brain scans.* arXiv preprint arXiv:2407.02418.
 ## Team Members
 1. Dabeet Das
 2. Ram Daftari
