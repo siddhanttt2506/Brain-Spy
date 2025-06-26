@@ -1,4 +1,4 @@
-# 🧠 Foundational Concepts for CNNs, Transfer Learning, and Medical Imaging
+#  Foundational Concepts for CNNs, Transfer Learning, and Medical Imaging
 
 This document summarizes essential concepts, aimed at helping you master computer vision and deep learning applications—especially for medical imaging and MRI classification.
 
@@ -19,7 +19,7 @@ CNNs are specialized neural networks designed for image-based data. They extract
 - Input image → Convolution → ReLU → Pooling → FC Layer → Output.
 - Implemented using libraries like `TensorFlow`, `PyTorch`, or `Keras`.
 
-📖 **Refer:** Analytics Vidhya’s Beginner Guide (MNIST example using Keras)
+ **Refer:** Analytics Vidhya’s Beginner Guide (MNIST example using Keras)
 
 ---
 
@@ -41,7 +41,7 @@ Transfer Learning is a technique where a pre-trained model is reused and fine-tu
 ### 🔹 Common Models
 - VGG16, ResNet50, EfficientNet-B3, ConvNeXt, Vision Transformer (ViT)
 
-📖 **Refer:** Turing Blog on VGG16; Medium article comparing CNN vs transfer learning for Alzheimer’s MRI
+ **Refer:** Turing Blog on VGG16; Medium article comparing CNN vs transfer learning for Alzheimer’s MRI
 
 ---
 
@@ -61,7 +61,7 @@ Both formats store metadata (voxel size, orientation, patient info) and 3D volum
 
 Correct interpretation of image orientation is essential for consistent visualization and diagnosis.
 
-📖 **Refer:** RadioGyan’s guide on etymology and anatomical imaging planes
+ **Refer:** RadioGyan’s guide on etymology and anatomical imaging planes
 
 ---
 
@@ -94,7 +94,7 @@ As models grow complex, interpreting their decision-making becomes essential—e
 
 ---
 
-## 🧩 6. CNN vs Transfer Learning for MRI
+##  6. CNN vs Transfer Learning for MRI
 
 | Feature             | CNN (Custom)                  | Transfer Learning            |
 |---------------------|-------------------------------|------------------------------|
@@ -107,7 +107,7 @@ As models grow complex, interpreting their decision-making becomes essential—e
 
 ---
 
-## 📝 Summary of Resources
+##  Summary of Resources
 
 | Concept                 | Resource                                                                 |
 |-------------------------|--------------------------------------------------------------------------|
@@ -119,7 +119,7 @@ As models grow complex, interpreting their decision-making becomes essential—e
 
 ---
 
-## ✅ Recommended Learning Path
+##  Recommended Learning Path
 
 1. Understand and implement basic CNNs.
 2. Explore transfer learning using pretrained models like VGG16.
