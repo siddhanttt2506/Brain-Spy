@@ -45,9 +45,9 @@ Also, `numpy` is used to ensure shape consistency with the pretrained models.  [
 - **Results:**
   - Training and validation accuracy curves indicate a stable and improving trend, however some overfitting is evident. We wish to test this model on the full dataset before commenting further.
   - The model was evaluated on a separate test set.
-  - The final train accuracy plateaus at around ``0.996-0.997`` and above whereas the validation accuracy plateaus at roughly ``0.96``. The final test accuracy is ``0.9622``.
+  - The final train accuracy plateaus at around ``0.996-0.997`` and above whereas the validation accuracy plateaus at roughly ``0.96``. The final test accuracy is ``0.9632``.
 
-- ** The implementation of this model can be found at the path: `/Dabeet/preprocessed-brainspy-resnet152.ipynb`. **
+- ** The implementation of this model can be found at the path: ** `/Dabeet/preprocessed-brainspy-resnet152.ipynb`.
 
 #### VGG19 with no preprocessing
 - **Summary:**
@@ -57,9 +57,15 @@ Also, `numpy` is used to ensure shape consistency with the pretrained models.  [
   - The final test accuracy for this model stood at `0.92`.
   - It is worth to note that the validation-train accuracy plot is much more unstable compared to the previous model.
 
-- ** Implementation can be found at : `/Dabeet/brain-spy.ipynb`. **
-
+- ** Implementation can be found at : ** `/Dabeet/brain-spy.ipynb`.
+]
 #### VGG19 with preprocessing
+- **Summary:**
+   -  This model is similar to the previous one but improves on it by utilising preprocessed data. Optimizer and learning rate and fully connected layer structure also remain the same.
+   -  The model is now trained for ``100 epochs`` instead of 35 and is able to achieve a final test accuracy of ``0.9349``.
+   -  The graph is indicative of slight overfitting but again, we would not like to comment on that before using the entire dataset.
+
+- **Implementation can be found at:** ``Ayush/preprocessed_data_vgg19.ipynb``.
 
 ### 3D CNN Model:
 ### SGCNN Model:
@@ -79,7 +85,7 @@ The Double CNN model was implemented in the notebook located at: `/Aayush/novel-
 | Model                          | Accuracy (%) |
 |-------------------------------|--------------|
 | VGG19 (Transfer Learning)     | 93.49        |
-| ResNet152 (Transfer Learning) | xx.xx        |
+| ResNet152 (Transfer Learning) | 96.32        |
 | 3D CNN                        | xx.xx        |
 | Double CNN                    | 98.99        |
 | SGCNN                         | xx.xx        |
