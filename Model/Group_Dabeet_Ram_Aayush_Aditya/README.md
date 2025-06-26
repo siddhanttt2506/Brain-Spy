@@ -8,6 +8,7 @@ We have tried classification of Brain MRI Scans using following models:
 - A **3D Convolutional Neural Network (3D CNN)** tailored for volumetric brain scan data
 - A **Spatial Graph Convolutional Neural Network (SGCNN)** leveraging spatial relationships within brain structures
 - A **Double CNN architecture** combining dual feature extraction paths
+- A **Attention-based eXplainability** using 2D CNNs to capture correlations and classify 3D MRIs
 
 For Transfer Learning Models and Double CNN architecture model, we used entropy based slicing to extract key slices of brain scan data as input.
 ### Problem Statement
@@ -47,7 +48,7 @@ Also, `numpy` is used to ensure shape consistency with the pretrained models.  [
   - The model was evaluated on a separate test set.
   - The final train accuracy plateaus at around ``0.996-0.997`` and above whereas the validation accuracy plateaus at roughly ``0.96``. The final test accuracy is ``0.9632``.
 
-- ** The implementation of this model can be found at the path: ** `/Dabeet/preprocessed-brainspy-resnet152.ipynb`.
+- **The implementation of this model can be found at the path:** `/Dabeet/preprocessed-brainspy-resnet152.ipynb`.
 
 #### VGG19 with no preprocessing
 - **Summary:**
@@ -57,8 +58,8 @@ Also, `numpy` is used to ensure shape consistency with the pretrained models.  [
   - The final test accuracy for this model stood at `0.92`.
   - It is worth to note that the validation-train accuracy plot is much more unstable compared to the previous model.
 
-- ** Implementation can be found at : ** `/Dabeet/brain-spy.ipynb`.
-]
+- **Implementation can be found at:** `/Dabeet/brain-spy.ipynb`.
+
 #### VGG19 with preprocessing
 - **Summary:**
    -  This model is similar to the previous one but improves on it by utilising preprocessed data. Optimizer and learning rate and fully connected layer structure also remain the same.
@@ -70,6 +71,15 @@ Also, `numpy` is used to ensure shape consistency with the pretrained models.  [
 ### 3D CNN Model:
 ### SGCNN Model:
 ### Double CNN Architecture Model:
+### AXIAL:
+This model aims to capture and use the relationship between multiple slices by using an Attention XAI Fusion Module and create a final representation of that particular MRI scan and then use it for classification. Basically, this model tries to use global features for an entire MRI scan rather than classify eaach 2D slice by tagging it with its parent label. 
+
+- **Feature Extraction Module:**
+  - Input: $N$ individual 2D brain slices (e.g., axial MRI slices from a 3D volume). Here, N is selected using the entropy based selection as mentioned above.
+  - Process: Each slice is passed through a CNN backbone (ResNet152).
+  - Output: A feature tensor of shape $(N,f_dim)$  — where each slice is represented by a vector of length $(f_dim,)$
+
+- 
 Double CNN architecture was referred from [this study](#ref1)[1]. It uses a 3 channel image consisting of middle slices of scans of all three temporal dimensions (axial, coronal, sagittal). However, this along with small size of dataset led to overfitting and bad results. To overcome this, we implemented [entropy based slicing](#ref2)[2] of brain scan as input images. We took top 30 images for each scan.
 <br>
 Regularization, Dropout, Early Stopping, and Reduce lr on Plateau were used to reduce overfitting of model. 
