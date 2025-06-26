@@ -69,8 +69,19 @@ Also, `numpy` is used to ensure shape consistency with the pretrained models.  [
 - **Implementation can be found at:** ``Ayush/preprocessed_data_vgg19.ipynb``.
 
 ### 3D CNN Model:
+
 ### SGCNN Model:
-### Double CNN Architecture Model:
+Takes inspiration from the paper https://doi.org/10.3389/fninf.2024.1495571
+
+**Approach:**
+- Used preprocess scans generated using https://github.com/AG3106/BrainSpy/tree/main/Pre_Processing
+- Takes only top 25 axial scans fom the .nii files
+- Segments different image scans using k-means and further uses these to create nodes and edges for graph representation (this can be further develeoped using U-Net segmentation algorithms)
+- These graphs are further processed in a SGCNN to train the model
+- Also uses a simple CNN sideways, to further merge with SGCNN.
+- Classifies into Alzheimer and Normal after using weights from both the models.
+- The model is not perfectly ready as of now, training is yet to be done.
+
 ### AXIAL:
 This model aims to capture and use the relationship between multiple slices by using an Attention XAI Fusion Module and create a final representation of that particular MRI scan and then use it for classification. Basically, this model tries to use global features for an entire MRI scan rather than classify eaach 2D slice by tagging it with its parent label. 
 This approach replicates this [paper](#ref5)[5]  with a few tweaks.
@@ -99,6 +110,7 @@ This approach replicates this [paper](#ref5)[5]  with a few tweaks.
   - Latest: Kaggle terminal seems to have crashed, only 3 epochs were executed, I am attaching the code at ``/Dabeet/axial.ipynb`` and the last reported accuracy is ``.754`` after ``3 epochs``.
   - This model seems promising and I would like to try it out with proper resources, currently I am looking to train it locally on my CPU where the training time is estimated to be ~ ``12 hours``.
 
+### Double CNN Architecture Model:
 Double CNN architecture was referred from [this study](#ref1)[1]. It uses a 3 channel image consisting of middle slices of scans of all three temporal dimensions (axial, coronal, sagittal). However, this along with small size of dataset led to overfitting and bad results. To overcome this, we implemented [entropy based slicing](#ref2)[2] of brain scan as input images. We took top 30 images for each scan.
 <br>
 Regularization, Dropout, Early Stopping, and Reduce lr on Plateau were used to reduce overfitting of model. 
