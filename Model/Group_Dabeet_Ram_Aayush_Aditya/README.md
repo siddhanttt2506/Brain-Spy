@@ -73,13 +73,32 @@ Also, `numpy` is used to ensure shape consistency with the pretrained models.  [
 ### Double CNN Architecture Model:
 ### AXIAL:
 This model aims to capture and use the relationship between multiple slices by using an Attention XAI Fusion Module and create a final representation of that particular MRI scan and then use it for classification. Basically, this model tries to use global features for an entire MRI scan rather than classify eaach 2D slice by tagging it with its parent label. 
+This approach replicates this [paper](#ref5)[5]  with a few tweaks.
 
 - **Feature Extraction Module:**
-  - Input: $N$ individual 2D brain slices (e.g., axial MRI slices from a 3D volume). Here, N is selected using the entropy based selection as mentioned above.
+  - Input: $N$ individual 2D brain slices (e.g., axial MRI slices from a 3D volume). Here, $N$ is selected using the entropy based selection as mentioned above.
   - Process: Each slice is passed through a CNN backbone (ResNet152).
   - Output: A feature tensor of shape $(N,f_dim)$  — where each slice is represented by a vector of length $(f_dim,)$
 
-- 
+- **Attention XAI Fusion Module:**
+  - Purpose: Aggregate slice-wise features into a single subject-level representation with explainability.
+  - Steps:
+    - Each feature vector $(f_dim,)$ is passed through a small MLP to compute attention scores.
+    - A softmax is applied over the scores.
+    - Each feature is multiplied by its attention weight.
+    - A weighted sum of all features produces a single vector
+  - Output: A single fused feature vector representing the full subject's brain scan.
+
+- **Diagnosis Module:**
+  - Input: The fused feature vector from the attention module
+  - Process: Fed into a fully connected MLP classifier.
+  - Output: Labels corresponding to AD/CN.
+
+- **Implementation:**
+  - At the time of writing this, the code for this model is ready but I am unable to train it on Kaggle due to an issue where the GPU is not being detected for training. A CPU based training was forced on Kaggle and estimated training time of ``6 days`` is reported.
+  - Latest: Kaggle terminal seems to have crashed, only 3 epochs were executed, I am attaching the code at ``/Dabeet/axial.ipynb`` and the last reported accuracy is ``.754`` after ``3 epochs``.
+  - This model seems promising and I would like to try it out with proper resources, currently I am looking to train it locally on my CPU where the training time is estimated to be ~ ``12 hours``.
+
 Double CNN architecture was referred from [this study](#ref1)[1]. It uses a 3 channel image consisting of middle slices of scans of all three temporal dimensions (axial, coronal, sagittal). However, this along with small size of dataset led to overfitting and bad results. To overcome this, we implemented [entropy based slicing](#ref2)[2] of brain scan as input images. We took top 30 images for each scan.
 <br>
 Regularization, Dropout, Early Stopping, and Reduce lr on Plateau were used to reduce overfitting of model. 
@@ -99,6 +118,7 @@ The Double CNN model was implemented in the notebook located at: `/Aayush/novel-
 | 3D CNN                        | xx.xx        |
 | Double CNN                    | 98.99        |
 | SGCNN                         | xx.xx        |
+| AXIAL                         | 75.40        |
 
 ### Double CNN Architecture:
 Double CNN had 98.99% accuracy on test dataset after training for 20 epochs. However, the model is quite prone to overfitting.<br>
