@@ -24,8 +24,43 @@ Our key goals include:
 - **Comparing 2D and 3D strategies** to determine the effectiveness of volumetric data processing  
 - **Computationally Cheaper** as we have limited access to resources
 ## Methodology
-Pre-Processing pipeline included Bias-Field correction, Skull-Stripping, Spatial Normalization (MNI) and Intensity Normalization by using [NPP model](#ref3)[3].
+Pre-Processing pipeline included Bias-Field correction, Skull-Stripping, Spatial Normalization (MNI) and Intensity Normalization by using [NPP model](#ref3)[3]. <br>
+Along with that, due to RAM constraints on the free tiers of Kaggle and Google Colab, we employed a method of 'entropy based selection' to select the top-k (k=100 in our case) slices from each MRI scan based on their relative importance. The model was finally trained using these slices only, they amounted to roughly 25,000 2D slices. Further, 128x128 crops are extracted from the center of each slice to be appended to the design matrix X. Integer labels are used. <br>
+Also, `numpy` is used to ensure shape consistency with the pretrained models.  [Slice Selection using Entropy](#ref2)[2].
+
 ### Transfer Learning Models:
+
+#### ResNet152
+- **Model Architecture**:
+  - A ResNet152 model pretrained on ImageNet is used as the base.
+  - All but the last five layers are frozen to retain general features and the fully connected layers were excluded.
+  - Three fully connected layers (each with 4096 units) are added, followed by a sigmoid output for binary classification.
+
+- **Training Setup**:
+  - Optimizer: Adam with default learning rate.
+  - Loss: Binary Crossentropy.
+  - Dataset split: 80% training / 20% testing, with 10% validation from the training set.
+  - Epochs: 75, Batch size: 64.
+
+- **Results:**
+  - Training and validation accuracy curves indicate a stable and improving trend, however some overfitting is evident. We wish to test this model on the full dataset before commenting further.
+  - The model was evaluated on a separate test set.
+  - The final train accuracy plateaus at around ``0.996-0.997`` and above whereas the validation accuracy plateaus at roughly ``0.96``. The final test accuracy is ``0.9622``.
+
+- ** The implementation of this model can be found at the path: `/Dabeet/preprocessed-brainspy-resnet152.ipynb`. **
+
+#### VGG19 with no preprocessing
+- **Summary:**
+  - VGG19 base model is used with all layers frozen along with the same 3 x 4096 units dense layer setup that was used above.
+  - Point to be noted, no preprocessing was done on this model's training set, Adam optimiser with a learning rate of `1e-6` was used and the model was trained for 35 epochs.
+  - A regular 80-20 train-test split was used along with 10% data from the training set being reserved for validation.
+  - The final test accuracy for this model stood at `0.92`.
+  - It is worth to note that the validation-train accuracy plot is much more unstable compared to the previous model.
+
+- ** Implementation can be found at : `/Dabeet/brain-spy.ipynb`. **
+
+#### VGG19 with preprocessing
+
 ### 3D CNN Model:
 ### SGCNN Model:
 ### Double CNN Architecture Model:
