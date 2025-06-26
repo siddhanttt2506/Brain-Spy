@@ -30,6 +30,25 @@ Also, `numpy` is used to ensure shape consistency with the pretrained models.  [
 
 ### Transfer Learning Models:
 
+#### ResNet152
+- **Model Architecture**:
+  - A ResNet152 model pretrained on ImageNet is used as the base.
+  - All but the last five layers are frozen to retain general features and the fully connected layers were excluded.
+  - Three fully connected layers (each with 4096 units) are added, followed by a sigmoid output for binary classification.
+
+- **Training Setup**:
+  - Optimizer: Adam with learning rate `1e-6`.
+  - Loss: Binary Crossentropy.
+  - Dataset split: 80% training / 20% testing, with 10% validation from the training set.
+  - Epochs: 75, Batch size: 64.
+
+- **Results:**
+- Training and validation accuracy curves indicate a stable and improving trend, however some overfitting is evident. We wish to test this model on the full dataset before commenting further.
+- The model was evaluated on a separate test set.
+- The final train accuracy plateaus at around ``0.996-0.997`` and above whereas the validation accuracy plateaus at roughly ``0.96``. The final test accuracy is ``0.9622``.
+
+#### VGG19 with no preprocessing
+
 ### 3D CNN Model:
 ### SGCNN Model:
 ### Double CNN Architecture Model:
