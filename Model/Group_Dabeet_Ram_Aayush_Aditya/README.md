@@ -43,9 +43,9 @@ Also, `numpy` is used to ensure shape consistency with the pretrained models.  [
   - Epochs: 75, Batch size: 64.
 
 - **Results:**
-- Training and validation accuracy curves indicate a stable and improving trend, however some overfitting is evident. We wish to test this model on the full dataset before commenting further.
-- The model was evaluated on a separate test set.
-- The final train accuracy plateaus at around ``0.996-0.997`` and above whereas the validation accuracy plateaus at roughly ``0.96``. The final test accuracy is ``0.9622``.
+  - Training and validation accuracy curves indicate a stable and improving trend, however some overfitting is evident. We wish to test this model on the full dataset before commenting further.
+  - The model was evaluated on a separate test set.
+  - The final train accuracy plateaus at around ``0.996-0.997`` and above whereas the validation accuracy plateaus at roughly ``0.96``. The final test accuracy is ``0.9622``.
 
 #### VGG19 with no preprocessing
 
