@@ -84,6 +84,8 @@ The final trained model can be saved as:
 - `.pt` (for PyTorch)
 - `.keras` (if using TensorFlow port)
 
+We have not currently worked on optimizing the model due to time constraints, however our baseline approach shows overfitting, with ~64% val accuracy and ~95% train accuracy.
+
 ---
 
 ## Team members
