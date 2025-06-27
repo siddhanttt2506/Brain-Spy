@@ -26,7 +26,19 @@ I used PyTorch for all the experiments.
 ### The Code Structure
 #### Step 1: Traversed the dataset directory and added the `path` column to the CSV file.
 The path column contains the path to the corresponding scan. This made it convenient to implement the dataset class.
-
+```python
+def addPathColumn(base_dir, csv_path):
+    image_to_path_df = pd.DataFrame(columns = ["Image Data ID", "path"])
+    for parent in glob.iglob(os.join(base_dir, "ADNI/**/**/**/*")):
+        id = parent.split("/")[-1]
+        path = glob.iglob(os.join(parent, '*'))[0]
+        temp_df = pd.DataFrame({"Image Data ID":[id], "path":[path]})
+        image_to_path_df = pd.concat([image_to_path_df, temp_df], axis=1)
+    adni_df = pd.read_csv(csv_path)
+    adni_df = pd.merge(adni_df, image_to_path_df, on='Image Data ID')
+    adni_df.to_csv("adni_with_path.csv")
+    return adni_df
+```
 #### Step 2: Creating the dataset class:
 ```python
 code = {'AD':1, 'CN':0}
